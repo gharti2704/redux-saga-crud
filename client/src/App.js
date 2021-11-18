@@ -5,12 +5,14 @@ import About from './pages/About';
 import AddUser from './pages/AddUser';
 import EditUser from './pages/EditUser';
 import UserInfo from './pages/UserInfo';
+import Header from './component/Header';
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Header />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
