@@ -2,14 +2,27 @@ import * as type from './types';
 const initialState = {
   users: [],
   loading: false,
+  error: null,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case type.ADD_USER_REQUESTED:
+    case type.LOAD_USER_REQUESTED:
       return {
         ...state,
-        payload: action.payload,
+        loading: true,
+      };
+    case type.LOAD_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        users: action.payload,
+      };
+    case type.LOAD_USER_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
 
     default:
